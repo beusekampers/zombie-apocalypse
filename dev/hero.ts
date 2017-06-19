@@ -3,9 +3,6 @@
 class Hero extends Character{
 
     private imageString :string = "";
-    private utils: Util;
-    private health: HTMLElement;
-
     public isAttacking: boolean = false;
 
 

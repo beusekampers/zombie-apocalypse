@@ -5,12 +5,14 @@ class Startscreen{
     private title: HTMLElement;
     private subtitle: HTMLElement;
     private startbutton: HTMLElement;
+    private game: Game;
 
     constructor(){
         this.startScreen();
     }
 
     startScreen(): void{
+
         this.div = document.createElement("startscreen");
         
         this.title = document.createElement("h1");
@@ -32,6 +34,6 @@ class Startscreen{
     private startGame(event : MouseEvent): void{
         this.div.remove();
         this.div = undefined;
-        new Game();
+        this.game = new Game();
     }
 }

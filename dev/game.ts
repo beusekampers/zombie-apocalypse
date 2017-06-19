@@ -6,7 +6,7 @@ class Game {
     private lifesWrap: HTMLElement;
     private heart: HTMLElement;
     private lifesP: HTMLElement;
-    private lifes: number = 5;
+    private lifes: number = 1;
     private firstHit : boolean = true;
 
     private utils: Util;
@@ -14,7 +14,9 @@ class Game {
     private intervalId: number;
     private counter: number;
 
-    private gameOver:boolean = false;
+    private winScreen: Winscreen;
+    private gameOver: Gameover;
+    private zeroLifes: boolean = false;
 
     constructor() {
 
@@ -43,7 +45,7 @@ class Game {
         this.zombies.push(new Zombie(randomPosFromArray));
         this.counter++;
 
-        if(this.counter > 40){
+        if(this.counter > 1){
             clearInterval(this.intervalId);
         }
 
@@ -81,9 +83,8 @@ class Game {
 
                     if(this.zombies.length == 0){
                         z.hitZombie();
-                        new Endscreen();
-                        this.hero.removeHero();
-                        this.lifesWrap.remove();
+                        this.winScreen = new Winscreen();
+                        this.cleanup();
                     }
                 } else{
                     if(this.firstHit) {
@@ -95,9 +96,9 @@ class Game {
                         }.bind(this), 3000);
                     }
                     this.updateLifes();
-                    if(this.lifes == 0 && this.gameOver == false){
-                        this.gameOver = true;
-                        new Gameover();
+                    if(this.lifes == 0 && this.zeroLifes == false){
+                        this.zeroLifes = true;
+                        this.gameOver = new Gameover();
                         this.cleanup();
                     }
                 }
@@ -107,7 +108,7 @@ class Game {
         requestAnimationFrame( () => this.gameLoop() );
     }
 
-    private cleanup(){
+    private cleanup(): void{
         this.hero.removeHero();
         this.lifesWrap.remove();
 

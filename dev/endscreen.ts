@@ -2,19 +2,18 @@ class Endscreen{
 
     private div: HTMLElement;
     private title: HTMLElement;
-    private succesGif: HTMLElement;
+    private gif: HTMLElement;
 
-    constructor(){
-        this.div = document.createElement("endscreen");
+    constructor(htmlTag: string, t: string, g: string){
+        this.div = document.createElement(htmlTag);
+        
         this.title = document.createElement("h1");
-
-        this.title.innerHTML = "You won the game";
+        this.title.innerHTML = t;
         this.div.appendChild(this.title);
 
-        this.succesGif = document.createElement("image");
-        this.succesGif.setAttribute("id","succesGif");
-        this.div.appendChild(this.succesGif);
-
+        this.gif = document.createElement("image");
+        this.gif.setAttribute("id", g);
+        this.div.appendChild(this.gif);
 
         document.body.appendChild(this.div);
     }

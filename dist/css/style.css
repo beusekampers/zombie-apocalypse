@@ -159,23 +159,7 @@ endscreen{
         margin: 0 auto;
     }
 
-gameover{
-    display: block;
-    width: 470px;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    padding-top: 150px;
-}
-    gameover h1{
-        position: relative;
-        margin-bottom: 40px;
-        text-shadow: 0px 1px 21px red;
-        -webkit-text-shadow: 0px 1px 21px red;
-        -moz-text-shadow: 0px 1px 21px red;
-    }
-
-    gameover #failGif{
+    endscreen #failGif{
         display: block;
         background-image: url(../images/failGif.gif);
         width: 260px;

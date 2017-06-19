@@ -14,7 +14,7 @@ class Zombie extends Character{
         this.move();
     }
 
-    public move(){
+    public move(): void{
         this.posX += this.speedX;
 
         if(this.posX > window.innerWidth - 85 ){
@@ -36,11 +36,7 @@ class Zombie extends Character{
         this.div.style.transform = "translate("+this.posX+"px, 0px)";
     }
 
-    public turnLeft(){
-        this.speedX = this.speedX * -1;
-    }
-
-    public hitZombie(){
+    public hitZombie(): void{
         this.div.remove();
     }
 }

@@ -11,9 +11,9 @@ var __extends = (this && this.__extends) || (function () {
 var Game = (function () {
     function Game() {
         var _this = this;
-        this.lifes = 5;
+        this.lifes = 1;
         this.firstHit = true;
-        this.gameOver = false;
+        this.zeroLifes = false;
         this.counter = 0;
         this.zombies = new Array();
         this.hero = new Hero;
@@ -32,7 +32,7 @@ var Game = (function () {
         var randomPosFromArray = randomPositionArray[Math.floor(randomPositionArray.length * Math.random())];
         this.zombies.push(new Zombie(randomPosFromArray));
         this.counter++;
-        if (this.counter > 40) {
+        if (this.counter > 1) {
             clearInterval(this.intervalId);
         }
     };
@@ -51,9 +51,8 @@ var Game = (function () {
                     _this.zombies.splice(i, 1);
                     if (_this.zombies.length == 0) {
                         z.hitZombie();
-                        new Endscreen();
-                        _this.hero.removeHero();
-                        _this.lifesWrap.remove();
+                        _this.winScreen = new Winscreen();
+                        _this.cleanup();
                     }
                 }
                 else {
@@ -66,9 +65,9 @@ var Game = (function () {
                         }.bind(_this), 3000);
                     }
                     _this.updateLifes();
-                    if (_this.lifes == 0 && _this.gameOver == false) {
-                        _this.gameOver = true;
-                        new Gameover();
+                    if (_this.lifes == 0 && _this.zeroLifes == false) {
+                        _this.zeroLifes = true;
+                        _this.gameOver = new Gameover();
                         _this.cleanup();
                     }
                 }
@@ -106,31 +105,25 @@ var Character = (function () {
     return Character;
 }());
 var Endscreen = (function () {
-    function Endscreen() {
-        this.div = document.createElement("endscreen");
+    function Endscreen(htmlTag, t, g) {
+        this.div = document.createElement(htmlTag);
         this.title = document.createElement("h1");
-        this.title.innerHTML = "You won the game";
+        this.title.innerHTML = t;
         this.div.appendChild(this.title);
-        this.succesGif = document.createElement("image");
-        this.succesGif.setAttribute("id", "succesGif");
-        this.div.appendChild(this.succesGif);
+        this.gif = document.createElement("image");
+        this.gif.setAttribute("id", g);
+        this.div.appendChild(this.gif);
         document.body.appendChild(this.div);
     }
     return Endscreen;
 }());
-var Gameover = (function () {
+var Gameover = (function (_super) {
+    __extends(Gameover, _super);
     function Gameover() {
-        this.div = document.createElement("gameover");
-        this.title = document.createElement("h1");
-        this.title.innerHTML = "GAME OVER";
-        this.div.appendChild(this.title);
-        this.failGif = document.createElement("image");
-        this.failGif.setAttribute("id", "failGif");
-        this.div.appendChild(this.failGif);
-        document.body.appendChild(this.div);
+        return _super.call(this, "endscreen", "GAME OVER", "failGif") || this;
     }
     return Gameover;
-}());
+}(Endscreen));
 var Hero = (function (_super) {
     __extends(Hero, _super);
     function Hero() {
@@ -209,7 +202,7 @@ var Startscreen = (function () {
     Startscreen.prototype.startGame = function (event) {
         this.div.remove();
         this.div = undefined;
-        new Game();
+        this.game = new Game();
     };
     return Startscreen;
 }());
@@ -224,6 +217,13 @@ var Util = (function () {
     };
     return Util;
 }());
+var Winscreen = (function (_super) {
+    __extends(Winscreen, _super);
+    function Winscreen() {
+        return _super.call(this, "endscreen", "You won the game", "succesGif") || this;
+    }
+    return Winscreen;
+}(Endscreen));
 var Zombie = (function (_super) {
     __extends(Zombie, _super);
     function Zombie(randomPosX) {
@@ -248,9 +248,6 @@ var Zombie = (function (_super) {
             this.div.style.transform = "scaleX(-1)";
         }
         this.div.style.transform = "translate(" + this.posX + "px, 0px)";
-    };
-    Zombie.prototype.turnLeft = function () {
-        this.speedX = this.speedX * -1;
     };
     Zombie.prototype.hitZombie = function () {
         this.div.remove();
