@@ -32,7 +32,7 @@ var Game = (function () {
         var randomPosFromArray = randomPositionArray[Math.floor(randomPositionArray.length * Math.random())];
         this.zombies.push(new Zombie(randomPosFromArray));
         this.counter++;
-        if (this.counter > 1) {
+        if (this.counter > 40) {
             clearInterval(this.intervalId);
         }
     };

@@ -45,7 +45,7 @@ class Game {
         this.zombies.push(new Zombie(randomPosFromArray));
         this.counter++;
 
-        if(this.counter > 1){
+        if(this.counter > 40){
             clearInterval(this.intervalId);
         }
 
