@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 var Game = (function () {
     function Game() {
         var _this = this;
-        this.lifes = 1;
+        this.lifes = 5;
         this.firstHit = true;
         this.zeroLifes = false;
         this.counter = 0;

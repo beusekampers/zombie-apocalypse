@@ -6,7 +6,7 @@ class Game {
     private lifesWrap: HTMLElement;
     private heart: HTMLElement;
     private lifesP: HTMLElement;
-    private lifes: number = 1;
+    private lifes: number = 5;
     private firstHit : boolean = true;
 
     private utils: Util;
