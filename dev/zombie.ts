@@ -9,7 +9,7 @@ class Zombie extends Character{
         this.posX = randomPosX;
     
         this.div.style.top = this.posY + "px";
-        this.div.style.backgroundImage = "url('../dist/images/zombie-flipped.GIF')";
+        this.div.style.backgroundImage = "url('../dist/images/zombie-flipped.gif')";
 
         this.move();
     }
@@ -22,7 +22,7 @@ class Zombie extends Character{
             this.speedX = this.speedX * -1;
 
             this.imageString = "";
-            this.div.style.backgroundImage = "url('../dist/images/zombie"+this.imageString+".GIF')";
+            this.div.style.backgroundImage = "url('../dist/images/zombie"+this.imageString+".gif')";
 
         } else if(this.posX < 0 - 45){
             console.log('move to left')

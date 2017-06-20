@@ -230,7 +230,7 @@ var Zombie = (function (_super) {
         var _this = _super.call(this, "zombie", randomPosX, 535, 1) || this;
         _this.posX = randomPosX;
         _this.div.style.top = _this.posY + "px";
-        _this.div.style.backgroundImage = "url('../dist/images/zombie-flipped.GIF')";
+        _this.div.style.backgroundImage = "url('../dist/images/zombie-flipped.gif')";
         _this.move();
         return _this;
     }
@@ -240,7 +240,7 @@ var Zombie = (function (_super) {
             console.log('move to right');
             this.speedX = this.speedX * -1;
             this.imageString = "";
-            this.div.style.backgroundImage = "url('../dist/images/zombie" + this.imageString + ".GIF')";
+            this.div.style.backgroundImage = "url('../dist/images/zombie" + this.imageString + ".gif')";
         }
         else if (this.posX < 0 - 45) {
             console.log('move to left');
