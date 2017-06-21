@@ -140,21 +140,21 @@ var Hero = (function (_super) {
                 this.posX = Math.min(1360, this.posX);
                 this.imageString = "-flipped";
                 this.speedX = 3;
-                this.div.style.backgroundImage = "url('../dist/images/hero-walk" + this.imageString + ".GIF')";
+                this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".GIF')";
                 this.div.style.backgroundSize = "contain";
                 break;
             case 37:
                 this.posX = Math.max(0, this.posX - 0);
                 this.imageString = "";
                 this.speedX = -3;
-                this.div.style.backgroundImage = "url('../dist/images/hero-walk" + this.imageString + ".GIF')";
+                this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".GIF')";
                 break;
             case 32:
                 if (!this.isAttacking) {
                     this.isAttacking = true;
-                    this.div.style.backgroundImage = "url('../dist/images/hero-attack" + this.imageString + ".png')";
+                    this.div.style.backgroundImage = "url('../docs/images/hero-attack" + this.imageString + ".png')";
                     setTimeout(function () {
-                        this.div.style.backgroundImage = "url('../dist/images/hero-walk" + this.imageString + ".GIF')";
+                        this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".GIF')";
                     }.bind(this), 400);
                 }
         }
@@ -230,7 +230,7 @@ var Zombie = (function (_super) {
         var _this = _super.call(this, "zombie", randomPosX, 535, 1) || this;
         _this.posX = randomPosX;
         _this.div.style.top = _this.posY + "px";
-        _this.div.style.backgroundImage = "url('../dist/images/zombie-flipped.gif')";
+        _this.div.style.backgroundImage = "url('../docs/images/zombie-flipped.gif')";
         _this.move();
         return _this;
     }
@@ -240,7 +240,7 @@ var Zombie = (function (_super) {
             console.log('move to right');
             this.speedX = this.speedX * -1;
             this.imageString = "";
-            this.div.style.backgroundImage = "url('../dist/images/zombie" + this.imageString + ".gif')";
+            this.div.style.backgroundImage = "url('../docs/images/zombie" + this.imageString + ".gif')";
         }
         else if (this.posX < 0 - 45) {
             console.log('move to left');

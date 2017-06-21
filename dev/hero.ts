@@ -21,7 +21,7 @@ class Hero extends Character{
             // console.log(this.posX);
             this.imageString = "-flipped";
             this.speedX = 3;
-            this.div.style.backgroundImage = "url('../dist/images/hero-walk"+this.imageString+".GIF')";
+            this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".GIF')";
             this.div.style.backgroundSize = "contain";
             break;
         case 37:
@@ -29,17 +29,17 @@ class Hero extends Character{
             this.posX = Math.max(0, this.posX-0);
             this.imageString = "";
             this.speedX = -3;
-            this.div.style.backgroundImage = "url('../dist/images/hero-walk"+this.imageString+".GIF')";
+            this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".GIF')";
             break;
         case 32:
             // Attack
 
             if (!this.isAttacking){
                 this.isAttacking = true;
-                this.div.style.backgroundImage = "url('../dist/images/hero-attack"+this.imageString+".png')";
+                this.div.style.backgroundImage = "url('../docs/images/hero-attack"+this.imageString+".png')";
 
                 setTimeout(function() {
-                    this.div.style.backgroundImage = "url('../dist/images/hero-walk"+this.imageString+".GIF')";
+                    this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".GIF')";
                 }.bind(this), 400);
             }
         }
