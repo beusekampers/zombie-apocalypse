@@ -24,12 +24,16 @@ Door gebruik te maken van classes splits ik mijn code op waarbij elk game elemen
 
 ### Composition 
 
-Met behulp van composition is het mogelijk om vanuit een class andere classes aan te maken. 
+Met behulp van composition heb ik er voor gezorgd dat ik uit bepaalde classes een andere class kan aanmaken. Binnen de game wordt bijvoorbeeld een hero en een zombie aangemaakt. 
 
-Met behulp van composition heb ik er voor gezorgd dat bepaalde classes andere classes aan kunnen maken. Bijvoorbeeld binnen de class "game" worden de coins, furniture en characters/players aangemaakt.
+### Encapsulation 
 
+Omdat ik gebruik maak van encapsulation zorg ik er voor dat mijn variabele in classes correct worden afgeschermd. Zodra iemand anders in mijn code zit te werken weet hij/zij welke variabele er gebruikt kunnen worden. 
 
+### Inherticance
+
+De class character heeft meerdere classes die deze class extenden zoals; zombie en hero. De zombie en hero class gebruiken allebei onderdelen van de character class, alleen de zombie en hero class kunnen gebruik maken van deze onderdelen. Door dit te doen zorg ik ervoor dat ik code niet twee keer hoef te schrijven. 
 
 ### UML van de game
 
-![uml-game](https://user-images.githubusercontent.com/6570176/27303263-8dae11b2-553a-11e7-8bb2-1a683808287c.png)
+![uml-game](https://user-images.githubusercontent.com/6570176/27479586-c9cad752-5814-11e7-9f08-6cffae2e21e2.png)
