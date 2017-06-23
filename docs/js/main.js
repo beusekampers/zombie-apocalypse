@@ -120,8 +120,17 @@ var Endscreen = (function () {
 var Gameover = (function (_super) {
     __extends(Gameover, _super);
     function Gameover() {
-        return _super.call(this, "endscreen", "GAME OVER", "failGif") || this;
+        var _this = _super.call(this, "endscreen", "GAME OVER", "failGif") || this;
+        _this.reloadBtn = document.createElement("a");
+        _this.reloadBtn.setAttribute("id", "reloadBtn");
+        _this.reloadBtn.innerHTML = "Try again";
+        _this.reloadBtn.addEventListener("click", function () { return _this.reload(); });
+        _this.div.appendChild(_this.reloadBtn);
+        return _this;
     }
+    Gameover.prototype.reload = function () {
+        location.reload();
+    };
     return Gameover;
 }(Endscreen));
 var Hero = (function (_super) {
@@ -239,7 +248,7 @@ var Zombie = (function (_super) {
     }
     Zombie.prototype.move = function () {
         this.posX += this.speedX;
-        if (this.posX > window.innerWidth - 85) {
+        if (this.posX > window.innerWidth - 65) {
             console.log('move to right');
             this.speedX = this.speedX * -1;
             this.imageString = "";

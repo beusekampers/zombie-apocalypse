@@ -168,3 +168,16 @@ endscreen{
         position: relative;
         margin: 0 auto;
     }
+
+    endscreen #reloadBtn{
+        text-shadow: 0px 1px 21px red;
+        -webkit-text-shadow: 0px 1px 21px red;
+        -moz-text-shadow: 0px 1px 21px red;
+        cursor: pointer;
+        width: 210px;
+        height: 80px;
+        padding-top: 19px;
+        margin: 0 auto;
+        position: relative;
+        top: 40px;
+    }

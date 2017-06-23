@@ -1,9 +1,9 @@
 class Endscreen{
 
-    private div: HTMLElement;
+    protected div: HTMLElement;
     private title: HTMLElement;
     private gif: HTMLElement;
-
+    
     constructor(htmlTag: string, t: string, g: string){
         this.div = document.createElement(htmlTag);
         

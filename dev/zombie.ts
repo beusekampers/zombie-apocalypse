@@ -17,7 +17,7 @@ class Zombie extends Character{
     public move(): void{
         this.posX += this.speedX;
 
-        if(this.posX > window.innerWidth - 85 ){
+        if(this.posX > window.innerWidth - 65 ){
             console.log('move to right')
             this.speedX = this.speedX * -1;
 
