@@ -62,7 +62,7 @@ var Game = (function () {
                         _this.firstHit = false;
                         setTimeout(function () {
                             this.firstHit = true;
-                        }.bind(_this), 3000);
+                        }.bind(_this), 2000);
                     }
                     _this.updateLifes();
                     if (_this.lifes == 0 && _this.zeroLifes == false) {
@@ -140,22 +140,25 @@ var Hero = (function (_super) {
                 this.posX = Math.min(1360, this.posX);
                 this.imageString = "-flipped";
                 this.speedX = 3;
-                this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".GIF')";
+                this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".gif')";
                 this.div.style.backgroundSize = "contain";
                 break;
             case 37:
                 this.posX = Math.max(0, this.posX - 0);
                 this.imageString = "";
                 this.speedX = -3;
-                this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".GIF')";
+                this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".gif')";
                 break;
             case 32:
                 if (!this.isAttacking) {
                     this.isAttacking = true;
                     this.div.style.backgroundImage = "url('../docs/images/hero-attack" + this.imageString + ".png')";
                     setTimeout(function () {
-                        this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".GIF')";
+                        this.div.style.backgroundImage = "url('../docs/images/hero-walk" + this.imageString + ".gif')";
                     }.bind(this), 400);
+                    if (this.div.classList.contains("damaged")) {
+                        this.isAttacking = false;
+                    }
                 }
         }
     };
@@ -171,7 +174,7 @@ var Hero = (function (_super) {
         this.div.classList.add("damaged");
         setTimeout(function () {
             this.div.classList.remove("damaged");
-        }.bind(this), 3000);
+        }.bind(this), 2000);
     };
     Hero.prototype.removeHero = function () {
         this.div.remove();

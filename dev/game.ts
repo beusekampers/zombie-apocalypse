@@ -93,7 +93,7 @@ class Game {
                         this.firstHit = false;
                         setTimeout(function() {
                             this.firstHit = true;
-                        }.bind(this), 3000);
+                        }.bind(this), 2000);
                     }
                     this.updateLifes();
                     if(this.lifes == 0 && this.zeroLifes == false){

@@ -101,7 +101,7 @@ hero{
     display: block;
     width: 100px;
     height: 150px;
-    background-image: url(../images/hero-walk.GIF);
+    background-image: url(../images/hero-walk.gif);
     background-size: contain;
 }
 
@@ -121,7 +121,7 @@ zombie{
     display: block;
     width: 120px;
     height: 150px;
-    background-image: url(../images/zombie.GIF);
+    background-image: url(../images/zombie.gif);
     background-size: contain;
     top: 665px;
     transition: 0.1s;

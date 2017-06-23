@@ -21,7 +21,7 @@ class Hero extends Character{
             // console.log(this.posX);
             this.imageString = "-flipped";
             this.speedX = 3;
-            this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".GIF')";
+            this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".gif')";
             this.div.style.backgroundSize = "contain";
             break;
         case 37:
@@ -29,7 +29,7 @@ class Hero extends Character{
             this.posX = Math.max(0, this.posX-0);
             this.imageString = "";
             this.speedX = -3;
-            this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".GIF')";
+            this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".gif')";
             break;
         case 32:
             // Attack
@@ -39,8 +39,11 @@ class Hero extends Character{
                 this.div.style.backgroundImage = "url('../docs/images/hero-attack"+this.imageString+".png')";
 
                 setTimeout(function() {
-                    this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".GIF')";
+                    this.div.style.backgroundImage = "url('../docs/images/hero-walk"+this.imageString+".gif')";
                 }.bind(this), 400);
+                if(this.div.classList.contains("damaged")){
+                    this.isAttacking = false;
+                }
             }
         }
         
@@ -60,7 +63,7 @@ class Hero extends Character{
         this.div.classList.add("damaged");
         setTimeout(function(){
             this.div.classList.remove("damaged");
-        }.bind(this),3000);
+        }.bind(this),2000);
     }
 
     public removeHero(): void{
