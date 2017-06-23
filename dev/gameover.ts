@@ -13,7 +13,7 @@ class Gameover extends Endscreen{
         this.div.appendChild(this.reloadBtn);
     }
 
-    private reload(){
+    private reload(): void{
         location.reload();
     }
 }
