@@ -87,12 +87,11 @@ var Game = (function () {
 }());
 var Character = (function () {
     function Character(htmlTag, posX, posY, speedX) {
-        this.width = 80;
-        this.height = 150;
         this.div = document.createElement(htmlTag);
         this.posX = posX;
         this.posY = posY;
         this.speedX = speedX;
+        this.div.style.bottom = this.posY + "px";
         document.body.appendChild(this.div);
     }
     Character.prototype.move = function () {
@@ -100,7 +99,7 @@ var Character = (function () {
         this.draw();
     };
     Character.prototype.draw = function () {
-        this.div.style.transform = "translate(" + this.posX + "px, " + this.posY + "px)";
+        this.div.style.transform = "translate(" + this.posX + "px, 0px)";
     };
     return Character;
 }());
@@ -136,9 +135,11 @@ var Gameover = (function (_super) {
 var Hero = (function (_super) {
     __extends(Hero, _super);
     function Hero() {
-        var _this = _super.call(this, "hero", (window.innerWidth / 2 - 50), 510, 0) || this;
+        var _this = _super.call(this, "hero", (window.innerWidth / 2 - 50), 150, 0) || this;
         _this.imageString = "";
         _this.isAttacking = false;
+        _this.width = 70;
+        _this.height = 150;
         window.addEventListener("keydown", function (event) { return _this.onKeyDown(event); });
         window.addEventListener("keyup", function (event) { return _this.onKeyUp(event); });
         return _this;
@@ -173,7 +174,6 @@ var Hero = (function (_super) {
     };
     Hero.prototype.onKeyUp = function (event) {
         this.speedX = 0;
-        this.posY = 510;
         switch (event.keyCode) {
             case 32:
                 this.isAttacking = false;
@@ -239,10 +239,10 @@ var Winscreen = (function (_super) {
 var Zombie = (function (_super) {
     __extends(Zombie, _super);
     function Zombie(randomPosX) {
-        var _this = _super.call(this, "zombie", randomPosX, 535, 1) || this;
+        var _this = _super.call(this, "zombie", randomPosX, 140, 1) || this;
+        _this.width = 70;
+        _this.height = 150;
         _this.posX = randomPosX;
-        _this.div.style.top = _this.posY + "px";
-        _this.div.style.backgroundImage = "url('../docs/images/zombie-flipped.gif')";
         _this.move();
         return _this;
     }
@@ -257,6 +257,8 @@ var Zombie = (function (_super) {
         else if (this.posX < 0 - 45) {
             console.log('move to left');
             this.speedX = this.speedX * -1;
+            this.imageString = "-flipped";
+            this.div.style.backgroundImage = "url('../docs/images/zombie" + this.imageString + ".gif')";
             this.div.style.transform = "scaleX(-1)";
         }
         this.div.style.transform = "translate(" + this.posX + "px, 0px)";

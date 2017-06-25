@@ -1,13 +1,17 @@
 /// <reference path="character.ts"/>
 
-class Hero extends Character{
+
+class Hero extends Character{ 
 
     private imageString :string = "";
     public isAttacking: boolean = false;
 
+    public width:number = 70;
+    public height:number = 150;
+
 
     constructor(){
-        super("hero", (window.innerWidth / 2 - 50), 510, 0);
+        super("hero", (window.innerWidth / 2 - 50), 150, 0);
 
         window.addEventListener("keydown", (event : KeyboardEvent) => this.onKeyDown(event));
         window.addEventListener("keyup", (event : KeyboardEvent) => this.onKeyUp(event));
@@ -51,7 +55,6 @@ class Hero extends Character{
 
     private onKeyUp(event : KeyboardEvent) :void {
         this.speedX = 0;
-        this.posY = 510;
 
         switch(event.keyCode){
         case 32:

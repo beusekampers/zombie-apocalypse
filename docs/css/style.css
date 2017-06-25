@@ -99,7 +99,7 @@ startscreen{
 
 hero{
     display: block;
-    width: 100px;
+    width: 70px;
     height: 150px;
     background-image: url(../images/hero-walk.gif);
     background-size: contain;
@@ -119,11 +119,10 @@ hero{
 
 zombie{
     display: block;
-    width: 120px;
+    width: 70px;
     height: 150px;
-    background-image: url(../images/zombie.gif);
+    background-image: url(../images/zombie-flipped.gif);
     background-size: contain;
-    top: 665px;
     transition: 0.1s;
 }
 
@@ -132,6 +131,14 @@ background {
     width:100%; height: 100%;
     background-size: cover;
 }
+
+    background grass{
+        background-image: url(../images/grass.png);
+        width: 100%;
+        height: 180px;
+        background-size: cover;
+        bottom: 0px;
+    }
 
 endscreen{
     display: block;
@@ -181,3 +188,15 @@ endscreen{
         position: relative;
         top: 40px;
     }
+
+herohitbox {
+    border:2px solid red;
+    height:150px; width:70px;
+    /*margin-top:28px;*/
+}
+zombiehitbox {
+    border:2px solid red;
+    height: 150px;
+    width: 70px;
+    /*margin-top:42px;*/
+}

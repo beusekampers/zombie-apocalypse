@@ -3,12 +3,11 @@
 class Character{
 
     protected div:HTMLElement;
+    public hitbox: HTMLElement;
 
     public posX:number;
     public posY:number;
     public speedX:number;
-    public width:number = 80;
-    public height:number = 150;
 
     constructor(htmlTag: string, posX: number, posY: number, speedX: number){
         
@@ -16,6 +15,8 @@ class Character{
         this.posX = posX;
         this.posY = posY;
         this.speedX = speedX;
+
+        this.div.style.bottom = this.posY + "px";
 
         document.body.appendChild(this.div);
 
@@ -28,6 +29,6 @@ class Character{
     }
 
     private draw(): void {
-        this.div.style.transform = "translate("+this.posX+"px, "+this.posY+"px)";
+        this.div.style.transform = "translate("+this.posX+"px, 0px)";
     }
 }
