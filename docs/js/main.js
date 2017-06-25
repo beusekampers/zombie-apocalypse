@@ -239,7 +239,7 @@ var Winscreen = (function (_super) {
 var Zombie = (function (_super) {
     __extends(Zombie, _super);
     function Zombie(randomPosX) {
-        var _this = _super.call(this, "zombie", randomPosX, 140, 1) || this;
+        var _this = _super.call(this, "zombie", randomPosX, 140, 0) || this;
         _this.width = 70;
         _this.height = 150;
         _this.posX = randomPosX;
