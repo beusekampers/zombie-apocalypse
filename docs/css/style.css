@@ -102,7 +102,7 @@ hero{
     width: 70px;
     height: 150px;
     background-image: url(../images/hero-walk.gif);
-    background-size: contain;
+    background-size: 70px;
 }
 
     hero.damaged{
@@ -122,7 +122,7 @@ zombie{
     width: 70px;
     height: 150px;
     background-image: url(../images/zombie-flipped.gif);
-    background-size: contain;
+    background-size: 70px;
     transition: 0.1s;
 }
 
