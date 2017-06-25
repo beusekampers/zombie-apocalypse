@@ -36,4 +36,4 @@ De class character heeft meerdere classes die deze class extenden zoals; zombie 
 
 ### UML van de game
 
-![uml-game](https://user-images.githubusercontent.com/6570176/27479586-c9cad752-5814-11e7-9f08-6cffae2e21e2.png)
+![uml-game](https://user-images.githubusercontent.com/6570176/27517957-5fe21608-59d5-11e7-8449-8f14a366b391.png)
