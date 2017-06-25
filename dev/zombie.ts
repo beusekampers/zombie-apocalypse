@@ -8,7 +8,7 @@ class Zombie extends Character{
     public height:number = 150;
 
     constructor(randomPosX){
-        super("zombie", randomPosX, 140 , 0 );  
+        super("zombie", randomPosX, 140 , 1 );  
         this.posX = randomPosX;
 
         this.move();
